@@ -2,20 +2,16 @@ import React, { Component} from 'react';
 import { Alert, Button, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 
 
-class CityServices extends Component{
+class CityServicesInfo extends Component{
     render(){
-        return(
-            <View style={styles.container}>
-                <View style={styles.image}>
-                    <Image source={require('./image/logo.png')} />
+            return(
+                <View style={styles.container}>
+                    <text>
+                        Sample text
+                    </text>
                 </View>
-                
-                <Text>
-                    Sample text regarding City Services
-                </Text>
-            </View>
-        )
-}
+            )
+    }
 }
 export default CityServices;
 

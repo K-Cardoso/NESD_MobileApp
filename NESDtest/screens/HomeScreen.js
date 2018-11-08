@@ -1,37 +1,40 @@
 import React, { Component} from 'react';
 import { Alert, Button, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { StackNavigator } from "react-navigation";
 
 class HomeScreen extends Component{
+
     render(){
             return(
-                <View style={styles.container}>
-                    <View style={styles.image}>
-                        <Image source={require('./image/logo.png')} />
-                    </View>
-                    
-                    <View style={styles.buttonContainer}>
-                        <TouchableOpacity onPress={()=>this.props.navigation.push('City')}>
-                            <View style={styles.button}>
-                                <Text style={styles.buttonText}>City Services</Text>
-                            </View>
-                        </TouchableOpacity>
+              <View style={styles.container}>
+              <View style={styles.image}>
+                  <Image source={require('./image/logo.png')} />
+              </View>
+              
+              <View style={styles.buttonContainer}>
+                  <TouchableOpacity >
+                      <View style={styles.button}>
+                          <Text style={styles.buttonText}>City Services</Text>
+                      </View>
+                  </TouchableOpacity>
 
-                        <TouchableOpacity onPress={()=>this.props.navigation.push('Community')}>
-                            <View style={styles.button}>
-                                <Text style={styles.buttonText}>Community Information</Text>
-                            </View>
-                        </TouchableOpacity>
+                  <TouchableOpacity >
+                      <View style={styles.button}>
+                          <Text style={styles.buttonText}>Community Information</Text>
+                      </View>
+                  </TouchableOpacity>
 
-                        <TouchableOpacity onPress={()=>this.props.navigation.push('Social')}>
-                            <View style={styles.button}>
-                                <Text style={styles.buttonText}>Social Media</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                  <TouchableOpacity >
+                      <View style={styles.button}>
+                          <Text style={styles.buttonText}>Social Media</Text>
+                      </View>
+                  </TouchableOpacity>
+              </View>
+          </View>
             )
     }
-}
+}3
+
 export default HomeScreen;
 
 const styles = StyleSheet.create({

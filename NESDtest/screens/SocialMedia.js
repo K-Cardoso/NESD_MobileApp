@@ -9,13 +9,9 @@ class SocialMedia extends Component{
                         <Image source={require('./image/logo.png')} />
                     </View>
                     
-                    <View style={styles.buttonContainer}>
-                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
-                            <View style={styles.button}>
-                                <Text style={styles.buttonText}>Go To Home Screen</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+                    <Text>
+                        Sample text regarding Social Media
+                    </Text>
                 </View>
             )
     }
