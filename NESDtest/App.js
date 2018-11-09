@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, Button, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import {createStackNavigator} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation';
 import HomeScreen from './screens/HomeScreen'
 import CityServices from './screens/CityServices'
@@ -16,8 +16,18 @@ export default class app extends React.Component {
 }
 
 const AppDrawer = createDrawerNavigator({
-  Home: HomeScreen,
-  CityServices: CityServices
+  Home:{
+    // screen:HomeScreen
+  },
+  City:{
+    // screen:CityServices
+  },
+  Community:{
+    // screen:CommunityInformation
+  },
+  Social:{
+    // screen:SocialMedia
+  }
 })
 
 

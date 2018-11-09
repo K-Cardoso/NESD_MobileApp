@@ -6,12 +6,16 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "tunnel": "expo start --tunnel"
   },
   "dependencies": {
-    "expo": "^30.0.1",
-    "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
-    "react-navigation": "^2.18.2"
+    "expo": "^31.0.4",
+    "react": "^16.6.1",
+    "react-native": "^0.57.4",
+    "react-navigation": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz"
+  },
+  "devDependencies": {
+    "expo-cli": "^2.3.7"
   }
 }
