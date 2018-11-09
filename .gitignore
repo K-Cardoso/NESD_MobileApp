@@ -1,0 +1,7 @@
+NESDtest/node_modules/**/*
+NESDtest/.expo/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
