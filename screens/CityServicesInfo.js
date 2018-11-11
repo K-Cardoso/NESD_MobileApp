@@ -3,15 +3,15 @@ import { Alert, Button, AppRegistry, Image, Platform, StyleSheet, Text, Touchabl
 
 
 class CityServicesInfo extends Component{
-    render(){
-            return(
-                <View style={styles.container}>
-                    <text>
-                        Sample text
-                    </text>
-                </View>
-            )
-    }
+  render(){
+    return(
+      <View style={styles.container}>
+        <Text>
+          Sample text
+        </Text>
+      </View>
+    )
+  }
 }
 export default CityServices;
 

@@ -2,19 +2,19 @@ import React, { Component} from 'react';
 import { Alert, Button, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 
 class SocialMedia extends Component{
-    render(){
-            return(
-                <View style={styles.container}>
-                    <View style={styles.image}>
-                        <Image source={require('./image/logo.png')} />
-                    </View>
-                    
-                    <Text>
-                        Sample text regarding Social Media
-                    </Text>
-                </View>
-            )
-    }
+  render(){
+    return(
+      <View style={styles.container}>
+        <View style={styles.image}>
+          <Image source={require('./image/logo.png')} />
+        </View>
+
+        <Text>
+          Sample text regarding Social Media
+        </Text>
+      </View>
+    )
+  }
 }
 export default SocialMedia;
 

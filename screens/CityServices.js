@@ -3,19 +3,19 @@ import { Alert, Button, AppRegistry, Image, Platform, StyleSheet, Text, Touchabl
 
 
 class CityServices extends Component{
-    render(){
-        return(
-            <View style={styles.container}>
-                <View style={styles.image}>
-                    <Image source={require('./image/logo.png')} />
-                </View>
-                
-                <Text>
-                    Sample text regarding City Services
-                </Text>
-            </View>
-        )
-}
+  render(){
+    return(
+      <View style={styles.container}>
+        <View style={styles.image}>
+          <Image source={require('./image/logo.png')} />
+        </View>
+
+        <Text>
+          Sample text regarding City Services
+        </Text>
+      </View>
+    )
+  }
 }
 export default CityServices;
 
