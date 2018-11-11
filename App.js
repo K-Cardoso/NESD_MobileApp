@@ -17,16 +17,16 @@ export default class app extends React.Component {
 
 const AppDrawer = createDrawerNavigator({
   Home:{
-    // screen:HomeScreen
+    screen:HomeScreen
   },
   City:{
-    // screen:CityServices
+    screen:CityServices
   },
   Community:{
-    // screen:CommunityInformation
+    screen:CommunityInformation
   },
   Social:{
-    // screen:SocialMedia
+    screen:SocialMedia
   }
 })
 

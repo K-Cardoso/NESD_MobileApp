@@ -1,5 +1,5 @@
-NESDtest/\node_modules/
-NESDtest/\.expo/
+node_modules/
+.expo/
 npm-debug.*
 *.jks
 *.p12
