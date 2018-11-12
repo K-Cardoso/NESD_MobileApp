@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { Linking, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 import { Ionicons, MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 
@@ -32,9 +32,37 @@ class SocialMedia extends Component{
             <Image source={require('./image/logo.png')} />
           </View>
 
-          <Text style={{color: 'blue'}}
+          <Text style={styles.links}
                 onPress={() => Linking.openURL('https://google.com')}>
             Google
+          </Text>
+
+          <Text style={styles.body}>
+            North End Smart District
+            
+            <Text style={styles.links}
+                  onPress={() => Linking.openURL('https://www.facebook.com/NorthEndSmartDistrict/')}>
+              Facebook
+            </Text>
+            <Text style={styles.links}
+                  onPress={() => Linking.openURL('https://www.instagram.com/NorthEndSmartDistrict/')}>
+              Instagram
+            </Text>
+            
+            Camp North End
+            
+            <Text style={styles.links}
+                  onPress={() => Linking.openURL('https://www.facebook.com/campnorthend/')}>
+              Facebook
+            </Text>
+            <Text style={styles.links}
+                  onPress={() => Linking.openURL('https://www.instagram.com/campnorthend/')}>
+              Instagram
+            </Text>
+            <Text style={styles.links}
+                  onPress={() => Linking.openURL('https://twitter.com/campnorthend')}>
+              Twitter
+            </Text>
           </Text>
 
         </Content>
@@ -45,9 +73,16 @@ class SocialMedia extends Component{
 export default SocialMedia;
 
 const styles = StyleSheet.create({
-    image:{
-      alignItems: 'center',
-      width: 167,
-      height: 44
-    }
+  image:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 167,
+    height: 44
+  },
+  links:{
+    color: 'blue'
+  },
+  body:{
+    
+  }
 });

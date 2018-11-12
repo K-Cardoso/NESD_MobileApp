@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { Linking, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 import { Ionicons, Entypo } from '@expo/vector-icons';
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 
@@ -32,7 +32,7 @@ class CommunityInformation extends Component{
             <Image source={require('./image/logo.png')} />
           </View>
 
-          <Text style={{color: 'blue'}}
+          <Text style={styles.links}
                 onPress={() => Linking.openURL('https://google.com')}>
             Google
           </Text>
@@ -45,9 +45,16 @@ class CommunityInformation extends Component{
 export default CommunityInformation;
 
 const styles = StyleSheet.create({
-    image:{
-      alignItems: 'center',
-      width: 167,
-      height: 44
-    }
-  });
+  image:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 167,
+    height: 44
+  },
+  links:{
+    color: 'blue'
+  },
+  body:{
+    
+  }
+});
