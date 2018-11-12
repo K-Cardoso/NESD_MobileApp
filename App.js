@@ -1,7 +1,9 @@
 import React from 'react';
-import { Alert, Button, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-import {createStackNavigator} from 'react-navigation';
-import {createDrawerNavigator} from 'react-navigation';
+import { Alert, Button, AppRegistry, Image, Platform, 
+  StyleSheet, Text, TouchableHighlight, TouchableOpacity, 
+  TouchableNativeFeedback, TouchableWithoutFeedback, View,
+  SafeAreaView, ScrollView, Dimensions } from 'react-native';
+import {createDrawerNavigator, DrawerItems} from 'react-navigation';
 import HomeScreen from './screens/HomeScreen'
 import CityServices from './screens/CityServices'
 import CommunityInformation from './screens/CommunityInformation'
@@ -14,6 +16,17 @@ export default class app extends React.Component {
     );
   }
 }
+
+const CustomDrawerComponent = (props) => (
+  <SafeAreaView style={{flex: 1}}>
+    <View style={{height:60, backgroundColor: 'grey', alignItems:'center'}}>
+      <Image source={require('./screens/image/logo.png')} style={{marginTop:7}} />
+    </View>
+    <ScrollView>
+      <DrawerItems {...props}/>
+    </ScrollView>
+  </SafeAreaView>
+)
 
 const AppDrawer = createDrawerNavigator({
   Home:{
@@ -28,7 +41,13 @@ const AppDrawer = createDrawerNavigator({
   Social:{
     screen:SocialMedia
   }
+}, {
+  contentComponent: CustomDrawerComponent,
+  contentOptions:{
+    activeTintColor: 'green'
+  }
 })
+
 
 
 const styles = StyleSheet.create({

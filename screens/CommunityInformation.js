@@ -1,43 +1,50 @@
 import React, { Component} from 'react';
-import { Alert, Button, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { Ionicons, Entypo } from '@expo/vector-icons';
+import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 
 class CommunityInformation extends Component{
+
+  static navigationOptions = {
+    drawerIcon: ({tintColor}) => (
+      <Ionicons name="ios-people" style={{color: tintColor}}/>
+    )
+  }
+
   render(){
     return(
-      <View style={styles.container}>
-        <View style={styles.image}>
-          <Image source={require('./image/logo.png')} />
-        </View>
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Entypo name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+            </Button>
+          </Left>
+          <Body>
+            <Text>
+                Community Information
+            </Text>
+          </Body>
+        </Header>
+        <Content padder style={{backgroundColor: '#3d87ff'}}>
 
-        <Text>
-          Sample text regarding Community Information
-        </Text>
-      </View>
+          <View style={styles.image}>
+            <Image source={require('./image/logo.png')} />
+          </View>
+
+          <Text style={{color: 'blue'}}
+                onPress={() => Linking.openURL('https://google.com')}>
+            Google
+          </Text>
+
+        </Content>
+      </Container>
     )
   }
 }
 export default CommunityInformation;
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#3d87ff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    buttonContainer: {
-      margin: 20
-    },
-    button: {
-      marginBottom: 30,
-      width: 260,
-      alignItems: 'center',
-      backgroundColor: '#e2edff'
-    },
-    buttonText: {
-      padding: 20,
-      color: 'black'
-    },
     image:{
       alignItems: 'center',
       width: 167,
