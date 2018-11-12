@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert, Button, AppRegistry, Image, Platform, 
   StyleSheet, Text, TouchableHighlight, TouchableOpacity, 
   TouchableNativeFeedback, TouchableWithoutFeedback, View,
-  SafeAreaView, ScrollView, Dimensions } from 'react-native';
+  SafeAreaView, ScrollView, Dimensions, StatusBar } from 'react-native';
 import {createDrawerNavigator, DrawerItems} from 'react-navigation';
 import HomeScreen from './screens/HomeScreen'
 import CityServices from './screens/CityServices'
@@ -56,23 +56,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#3d87ff',
     alignItems: 'center',
     justifyContent: 'center',
+
+    ...Platform.select({
+      android: {
+        marginTop: StatusBar.currentHeight
+      }
+    })
   },
-  buttonContainer: {
-    margin: 20
-  },
-  button: {
-    marginBottom: 30,
-    width: 260,
-    alignItems: 'center',
-    backgroundColor: '#e2edff'
-  },
-  buttonText: {
-    padding: 20,
-    color: 'black'
-  },
-  image:{
-    alignItems: 'center',
-    width: 167,
-    height: 44
-  }
 });

@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Linking , Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 import { StackNavigator } from "react-navigation";
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { Ionicons,FontAwesome,Entypo } from '@expo/vector-icons';
@@ -14,7 +14,7 @@ class HomeScreen extends Component{
   render(){
     return(
       <Container>
-        <Header>
+        <Header style={styles.Header}>
           <Left>
             <Button transparent>
               <Entypo name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
@@ -22,7 +22,7 @@ class HomeScreen extends Component{
           </Left>
           <Body>
             <Text>
-                Home
+                Home Updated
             </Text>
           </Body>
         </Header>
@@ -65,16 +65,29 @@ class HomeScreen extends Component{
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-    image:{
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: 167,
-      height: 44
-    },
-    links:{
-      color: 'blue'
-    },
-    body:{
-      
-    }
-  });
+  Container:{
+    flex: 1,
+    backgroundColor: '#3d87ff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  Header:{
+    ...Platform.select({
+      android: {
+        marginTop: StatusBar.currentHeight
+      }
+    })
+  },
+  image:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 167,
+    height: 44
+  },
+  links:{
+    color: 'blue'
+  },
+  body:{
+
+  }
+});
