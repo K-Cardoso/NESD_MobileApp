@@ -9,6 +9,7 @@ import CityServices from './screens/CityServices'
 import CommunityInformation from './screens/CommunityInformation'
 import SocialMedia from './screens/SocialMedia'
 
+
 export default class app extends React.Component {
   render() {
     return (
@@ -29,7 +30,7 @@ const CustomDrawerComponent = (props) => (
 )
 
 const AppDrawer = createDrawerNavigator({
-  Home:{
+  HomeScreen:{
     screen:HomeScreen
   },
   City:{

@@ -22,33 +22,35 @@ class HomeScreen extends Component{
           </Left>
           <Body>
             <Text>
-                Home Updated
+                Home
             </Text>
           </Body>
         </Header>
-        <Content padder style={{backgroundColor: '#3d87ff'}}>
+        <Content padder style={styles.padder}>
 
-          <View style={styles.image}>
+          <View style={{alignItems:'center'}}>
             <Image source={require('./image/logo.png')} />
           </View>
 
-          <Text style={styles.body}>
+          <Text style={styles.bodyText}>
+            {"\n"}
             About North End Smart District Charlotte’s North End Smart District (NESD) is blazing a new path for development in the Queen City.
-            
+            {"\n"}
             The North End Smart District (NESD) has been defined by 15 studies between 1993 and 2016 that identified the area as 
               a future hotspot for development, attracting new economic activities, particularly centered on technology and innovation sectors.
-            
+            {"\n"}
             Designated in 2011 as the Applied Innovation Corridor, Community Investment Plan bond funding is earmarked for collaborative 
-              economic development investments to improve the public realm. The NESD builds from that to focus on collaborations with the 
-              community within the eight neighborhoods in the district.
-            
+            economic development investments to improve the public realm. The NESD builds from that to focus on collaborations with the 
+            community within the eight neighborhoods in the district.
+            {"\n"}
             Charlotte’s smart city vision includes creating a district that acts as a hub for the city’s innovation engine. Smart Cities 
-              optimize infrastructure to maximize services and opportunities for public good. Government, companies, universities, and 
-              community partners collaborate to use innovation and data to increase economic opportunities, connectedness, efficiency, 
-              and harness the potential of its people.
-            
+            optimize infrastructure to maximize services and opportunities for public good. Government, companies, universities, and 
+            community partners collaborate to use innovation and data to increase economic opportunities, connectedness, efficiency, 
+            and harness the potential of its people.
+            {"\n"}
             The NESD’s innovative approach to Smart Cities is one that ensures residents have a seat at the table making decisions for 
-              their community.
+            their community.
+            {"\n"}
           </Text>
 
           <Text style={styles.links}
@@ -78,16 +80,14 @@ const styles = StyleSheet.create({
       }
     })
   },
-  image:{
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 167,
-    height: 44
-  },
   links:{
     color: 'blue'
   },
-  body:{
-
+  padder:{
+    backgroundColor: '#3d87ff'
+  },
+  bodyText:{
+    textAlign: 'center',
+    
   }
 });

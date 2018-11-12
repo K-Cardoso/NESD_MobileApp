@@ -28,40 +28,38 @@ class SocialMedia extends Component{
         </Header>
         <Content padder style={{backgroundColor: '#3d87ff'}}>
 
-          <View style={styles.image}>
+          <View style={{alignItems:'center'}}>
             <Image source={require('./image/logo.png')} />
           </View>
 
-          <Text style={styles.links}
-                onPress={() => Linking.openURL('https://google.com')}>
-            Google
-          </Text>
-
           <Text style={styles.body}>
-            North End Smart District
-            
+            <Text style={styles.title}>
+              {"\n"}North End Smart District{"\n"}
+            </Text>
             <Text style={styles.links}
                   onPress={() => Linking.openURL('https://www.facebook.com/NorthEndSmartDistrict/')}>
-              Facebook
+              Facebook{"\n"}
             </Text>
             <Text style={styles.links}
                   onPress={() => Linking.openURL('https://www.instagram.com/NorthEndSmartDistrict/')}>
-              Instagram
+              Instagram{"\n"}
             </Text>
-            
-            Camp North End
-            
+
+            <Text style={styles.title}>
+              Camp North End{"\n"}
+            </Text>
+
             <Text style={styles.links}
                   onPress={() => Linking.openURL('https://www.facebook.com/campnorthend/')}>
-              Facebook
+              Facebook{"\n"}
             </Text>
             <Text style={styles.links}
                   onPress={() => Linking.openURL('https://www.instagram.com/campnorthend/')}>
-              Instagram
+              Instagram{"\n"}
             </Text>
             <Text style={styles.links}
                   onPress={() => Linking.openURL('https://twitter.com/campnorthend')}>
-              Twitter
+              Twitter{"\n"}
             </Text>
           </Text>
 
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
   links:{
     color: 'blue'
   },
-  body:{
-    
+  title:{
+    fontSize: 18
   }
 });

@@ -28,14 +28,9 @@ class CommunityInformation extends Component{
         </Header>
         <Content padder style={{backgroundColor: '#3d87ff'}}>
 
-          <View style={styles.image}>
+          <View style={{alignItems:'center'}}>
             <Image source={require('./image/logo.png')} />
           </View>
-
-          <Text style={styles.links}
-                onPress={() => Linking.openURL('https://google.com')}>
-            Google
-          </Text>
 
         </Content>
       </Container>
