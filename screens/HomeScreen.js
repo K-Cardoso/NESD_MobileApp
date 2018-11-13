@@ -7,8 +7,8 @@ import { Ionicons,FontAwesome,Entypo } from '@expo/vector-icons';
 class HomeScreen extends Component{
 
   static navigationOptions = {
-    drawerIcon: ({tintColor}) => (
-      <Entypo name="home" style={{color: tintColor}}/>
+    drawerIcon:(
+      <Entypo name="home" size={25} color="dimgray"/>
     )
   }
   render(){
@@ -17,7 +17,7 @@ class HomeScreen extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Entypo name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>

@@ -6,8 +6,8 @@ import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} fro
 class SocialMedia extends Component{
 
   static navigationOptions = {
-    drawerIcon: ({tintColor}) => (
-      <MaterialCommunityIcons name="account" style={{color: tintColor}}/>
+    drawerIcon:(
+      <MaterialCommunityIcons name="account" size={25} color="dimgray"/>
     )
   }
 
@@ -17,7 +17,7 @@ class SocialMedia extends Component{
         <Header>
           <Left>
             <Button transparent>
-              <Entypo name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>

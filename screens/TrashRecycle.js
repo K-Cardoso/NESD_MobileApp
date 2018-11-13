@@ -2,12 +2,12 @@ import React, { Component} from 'react';
 import { Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from "react-navigation";
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
-import { Ionicons,FontAwesome } from '@expo/vector-icons';
+import { Ionicons,FontAwesome, Entypo } from '@expo/vector-icons';
 
 class TrashRecycle extends Component{
     static navigationOptions = {
         drawerIcon: ({tintColor}) => (
-            <FontAwesome name="long-arrow-right" style={{color: tintColor}}/>
+            <FontAwesome name="long-arrow-right" size={25} color="dimgray"/>
         )
     }
   render(){
@@ -16,7 +16,7 @@ class TrashRecycle extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Entypo name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
@@ -48,7 +48,7 @@ class TrashRecycle extends Component{
   }
 }
 
-export default HomeScreen;
+export default TrashRecycle;
 
 const styles = StyleSheet.create({
   Container:{

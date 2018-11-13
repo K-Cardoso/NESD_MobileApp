@@ -9,6 +9,8 @@ import CityServices from './screens/CityServices'
 import CommunityInformation from './screens/CommunityInformation'
 import SocialMedia from './screens/SocialMedia'
 
+import TrashRecycle from './screens/TrashRecycle'
+
 
 export default class app extends React.Component {
   render() {
@@ -20,8 +22,8 @@ export default class app extends React.Component {
 
 const CustomDrawerComponent = (props) => (
   <SafeAreaView style={{flex: 1}}>
-    <View style={{height:60, backgroundColor: 'grey', alignItems:'center'}}>
-      <Image source={require('./screens/image/logo.png')} style={{marginTop:7}} />
+    <View style={{height:100, backgroundColor: 'grey', alignItems:'center'}}>
+      <Image source={require('./screens/image/logo.png')} style={{marginTop:40, marginBottom: 10}} />
     </View>
     <ScrollView>
       <DrawerItems {...props}/>
@@ -30,11 +32,14 @@ const CustomDrawerComponent = (props) => (
 )
 
 const AppDrawer = createDrawerNavigator({
-  HomeScreen:{
+  Home:{
     screen:HomeScreen
   },
   City:{
     screen:CityServices
+  },
+  Trash:{
+    screen:TrashRecycle
   },
   Community:{
     screen:CommunityInformation

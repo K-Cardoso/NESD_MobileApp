@@ -6,8 +6,8 @@ import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} fro
 class CommunityInformation extends Component{
 
   static navigationOptions = {
-    drawerIcon: ({tintColor}) => (
-      <Ionicons name="ios-people" style={{color: tintColor}}/>
+    drawerIcon:(
+      <Ionicons name="ios-people" size={25} color="dimgray"/>
     )
   }
 
@@ -17,7 +17,7 @@ class CommunityInformation extends Component{
         <Header>
           <Left>
             <Button transparent>
-              <Entypo name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>

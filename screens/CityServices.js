@@ -6,8 +6,8 @@ import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} fro
 class CityServices extends Component{
 
   static navigationOptions = {
-    drawerIcon: ({tintColor}) => (
-      <MaterialIcons name="location-city" style={{color: tintColor}}/>
+    drawerIcon:(
+      <MaterialIcons name="location-city" size={25} color="dimgray"/>
     )
   }
 
@@ -17,7 +17,7 @@ class CityServices extends Component{
         <Header>
           <Left>
             <Button transparent>
-              <Entypo name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
