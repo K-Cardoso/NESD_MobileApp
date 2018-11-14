@@ -19,8 +19,8 @@ class TrashRecycle extends Component{
             </Button>
           </Left>
           <Body>
-            <Text>
-                Home
+          <Text style={{color:'white'}}>
+                Trash &amp; Recycling
             </Text>
           </Body>
         </Header>

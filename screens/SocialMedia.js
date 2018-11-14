@@ -20,7 +20,7 @@ class SocialMedia extends Component{
             </Button>
           </Left>
           <Body>
-            <Text>
+            <Text style={{color:'white'}}>
                 Social Media
             </Text>
           </Body>

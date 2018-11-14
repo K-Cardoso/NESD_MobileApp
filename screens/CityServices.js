@@ -20,7 +20,7 @@ class CityServices extends Component{
             </Button>
           </Left>
           <Body>
-            <Text>
+            <Text style={{color:'white'}}>
                 City Services
             </Text>
           </Body>

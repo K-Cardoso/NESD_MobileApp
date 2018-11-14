@@ -20,7 +20,7 @@ class HomeScreen extends Component{
             </Button>
           </Left>
           <Body>
-            <Text>
+            <Text style={{color:'white'}}>
                 Home
             </Text>
           </Body>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
       android: {
         marginTop: StatusBar.currentHeight
       }
-    })
+    }),
   },
   links:{
     color: 'blue'

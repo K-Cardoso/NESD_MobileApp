@@ -20,7 +20,7 @@ class CommunityInformation extends Component{
             </Button>
           </Left>
           <Body>
-            <Text>
+            <Text style={{color:'white'}}>
                 Community Information
             </Text>
           </Body>
