@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import { Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-import { StackNavigator } from "react-navigation";
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { Ionicons,FontAwesome,Entypo } from '@expo/vector-icons';
 

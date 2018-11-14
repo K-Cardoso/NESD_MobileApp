@@ -1,15 +1,14 @@
 import React, { Component} from 'react';
 import { Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, View } from 'react-native';
-import { StackNavigator } from "react-navigation";
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { Ionicons,FontAwesome, Entypo } from '@expo/vector-icons';
 
 class TrashRecycle extends Component{
-    static navigationOptions = {
-        drawerIcon: ({tintColor}) => (
-            <FontAwesome name="long-arrow-right" size={25} color="dimgray"/>
-        )
-    }
+  static navigationOptions = {
+      drawerIcon: ({tintColor}) => (
+          <FontAwesome name="long-arrow-right" size={25} color="dimgray"/>
+      )
+  }
   render(){
     return(
       <Container>

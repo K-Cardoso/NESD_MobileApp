@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-import { Linking, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-import { Ionicons, MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
+import { Linking, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 
 class SocialMedia extends Component{
@@ -10,11 +10,10 @@ class SocialMedia extends Component{
       <MaterialCommunityIcons name="account" size={25} color="dimgray"/>
     )
   }
-
   render(){
     return(
       <Container>
-        <Header>
+        <Header style={styles.Header}>
           <Left>
             <Button transparent>
               <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
@@ -76,6 +75,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 167,
     height: 44
+  },
+  Header:{
+    ...Platform.select({
+      android: {
+        marginTop: StatusBar.currentHeight
+      }
+    })
   },
   links:{
     color: 'blue'
