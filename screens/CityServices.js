@@ -20,7 +20,7 @@ class CityServices extends Component{
             </Button>
           </Left>
           <Body>
-            <Text style={{color:'white'}}>
+            <Text style={{color:'black'}}>
                 City Services
             </Text>
           </Body>
@@ -30,7 +30,18 @@ class CityServices extends Component{
           <View style={{alignItems:'center'}}>
             <Image source={require('./image/logo.png')} />
           </View>
-
+          <Text style={{alignItems:'center', fontSize: 18, fontWeight: 'bold'}}>
+            {"\n"}
+            The NESD is a Vehicle To:
+          </Text>
+          <Text>
+          {"\n"}
+            -build strong relationships and preserve the community’s identity{"\n"}
+            -create partnerships{"\n"}
+            -increase equitable community engagement{"\n"}
+            -use data analytics, innovation and lessons learned to inform institutional practices{"\n"}
+            -replicate in other City projects throughout Charlotte{"\n"}
+          </Text>
         </Content>
       </Container>
     )

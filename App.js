@@ -10,6 +10,10 @@ import CommunityInformation from './screens/CommunityInformation'
 import SocialMedia from './screens/SocialMedia'
 
 import TrashRecycle from './screens/TrashRecycle'
+import BusSchedule from './screens/BusSchedule'
+import PollingLocation from './screens/PollingLocation'
+import CMSSchoolCalendar from './screens/CMSSchoolCalendar'
+import Events from './screens/CMSSchoolCalendar'
 
 
 export default class app extends React.Component {
@@ -22,8 +26,8 @@ export default class app extends React.Component {
 
 const CustomDrawerComponent = (props) => (
   <SafeAreaView style={{flex: 1}}>
-    <View style={{height:100, backgroundColor: 'grey', alignItems:'center'}}>
-      <Image source={require('./screens/image/logo.png')} style={{marginTop:40, marginBottom: 10}} />
+    <View style={{height:100, backgroundColor: 'white', alignItems:'center'}}>
+      <Image source={require('./screens/image/sideLogo.png')} style={{ marginTop:25,marginBottom: 20, width: 150, height: 75}} />
     </View>
     <ScrollView>
       <DrawerItems {...props}/>
@@ -41,8 +45,20 @@ const AppDrawer = createDrawerNavigator({
   Trash:{
     screen:TrashRecycle
   },
+  BusSchedule:{
+    screen:BusSchedule
+  },
+  PollingLocation:{
+    screen:PollingLocation
+  },
   Community:{
     screen:CommunityInformation
+  },
+  CMSSchoolCalendar:{
+    screen:CMSSchoolCalendar
+  },
+  Events:{
+    screen:Events
   },
   Social:{
     screen:SocialMedia

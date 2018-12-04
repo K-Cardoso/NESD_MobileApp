@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Linking, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { Linking, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View, WebView } from 'react-native';
 import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 
@@ -20,7 +20,7 @@ class SocialMedia extends Component{
             </Button>
           </Left>
           <Body>
-            <Text style={{color:'white'}}>
+            <Text style={{color:'black'}}>
                 Social Media
             </Text>
           </Body>
@@ -30,7 +30,6 @@ class SocialMedia extends Component{
           <View style={{alignItems:'center'}}>
             <Image source={require('./image/logo.png')} />
           </View>
-
           <Text style={styles.body}>
             <Text style={styles.title}>
               {"\n"}North End Smart District{"\n"}
@@ -41,7 +40,7 @@ class SocialMedia extends Component{
             </Text>
             <Text style={styles.links}
                   onPress={() => Linking.openURL('https://www.instagram.com/NorthEndSmartDistrict/')}>
-              Instagram{"\n"}
+              Instagram{"\n"}{"\n"}
             </Text>
 
             <Text style={styles.title}>

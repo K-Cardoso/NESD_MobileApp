@@ -1,14 +1,13 @@
 import React, { Component} from 'react';
-import { Linking, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-import { Ionicons, Entypo } from '@expo/vector-icons';
+import { Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, View } from 'react-native';
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Ionicons,FontAwesome, Entypo } from '@expo/vector-icons';
 
-class CommunityInformation extends Component{
-
+class PollingLocation extends Component{
   static navigationOptions = {
-    drawerIcon:(
-      <Ionicons name="ios-people" size={25} color="dimgray"/>
-    )
+      drawerIcon: ({tintColor}) => (
+          <FontAwesome name="long-arrow-right" size={25} color="dimgray"/>
+      )
   }
   render(){
     return(
@@ -20,23 +19,26 @@ class CommunityInformation extends Component{
             </Button>
           </Left>
           <Body>
-            <Text style={{color:'black'}}>
-                Community Information
+          <Text style={{color:'white'}}>
+                Polling Locations
             </Text>
           </Body>
         </Header>
-        <Content padder style={{backgroundColor: '#3d87ff'}}>
+        <Content padder style={styles.padder}>
 
           <View style={{alignItems:'center'}}>
             <Image source={require('./image/logo.png')} />
           </View>
-          <Text style={{fontSize: 36}}>
+
+          <Text style={styles.bodyText}>
             {"\n"}
-            “We have the opportunity to do better than we’ve done. Let’s try to get it right this time.”
+            (Place holder for Polling Location)
+            {"\n"}
           </Text>
-          <Text style={{fontSize: 16}}>
-            {"\n"}
-            —Darryl Gaston, President of the Druid Hills Neighborhood Association
+
+          <Text style={styles.links}
+                onPress={() => Linking.openURL('http://northendsmartdistrict.com/')}>
+            North End Smart District Webpage
           </Text>
 
         </Content>
@@ -44,14 +46,15 @@ class CommunityInformation extends Component{
     )
   }
 }
-export default CommunityInformation;
+
+export default PollingLocation;
 
 const styles = StyleSheet.create({
-  image:{
+  Container:{
+    flex: 1,
+    backgroundColor: '#3d87ff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 167,
-    height: 44
   },
   Header:{
     ...Platform.select({
@@ -63,7 +66,11 @@ const styles = StyleSheet.create({
   links:{
     color: 'blue'
   },
-  body:{
+  padder:{
+    backgroundColor: '#3d87ff'
+  },
+  bodyText:{
+    textAlign: 'center',
     
   }
 });
