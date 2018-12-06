@@ -64,6 +64,8 @@ function getTrashDay() {
 // 3613 DRIFTWOOD DR, CHARLOTTE NC 28205 (Random address)
 // -80.7635,35.2085
 
+
+
 const styles = StyleSheet.create({
   Container:{
     flex: 1,
