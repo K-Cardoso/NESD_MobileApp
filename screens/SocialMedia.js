@@ -39,6 +39,10 @@ class SocialMedia extends Component{
               Facebook{"\n"}
             </Text>
             <Text style={styles.links}
+                  onPress={() => Linking.openURL('https://www.facebook.com/pg/NorthEndSmartDistrict/events/?ref=page_internal')}>
+              Page Events{"\n"}
+            </Text>
+            <Text style={styles.links}
                   onPress={() => Linking.openURL('https://www.instagram.com/NorthEndSmartDistrict/')}>
               Instagram{"\n"}{"\n"}
             </Text>
