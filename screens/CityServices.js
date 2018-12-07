@@ -1,9 +1,8 @@
 import React, { Component} from 'react';
 import { AsyncStorage, StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput} from 'react-native';
-import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import axios from 'axios'
 import { Ionicons,MaterialIcons, Entypo } from '@expo/vector-icons';
-import TrashRecycle from './TrashRecycle'
-import PollingLocation from './PollingLocation'
 
 class CityServices extends Component{
   
@@ -11,9 +10,11 @@ class CityServices extends Component{
     super(props);
     this.state = {
       items: [],
+      trashCollection: [],
       inputAddress: '',
       longitude: '',
       latitude: '',
+      polling: [],
     }
   }
   static navigationOptions = {
@@ -31,8 +32,6 @@ class CityServices extends Component{
         .then(json => {
           this.setState({
             items: json,
-            latitude: json.lat,
-            longitude: json.lng,
           })
         })
     }
@@ -41,52 +40,83 @@ class CityServices extends Component{
     }
   }
 
-  getTrash(){
+  getTrash() {
+    let setLatLngState = this.state.items.map((val,key)=> {
+      this.setState({
+        longitude: val.lng,
+        latitude: val.lat,
+        
+      })
+    })
+    const URL = `https://mcmap.org/api/intersect_point/v1/solid_waste/${this.state.longitude},${this.state.latitude}/4326?geom_column=the_geom&columns=jurisdiction,day,week,type`;
     
-    var lng = this.state.longitude;
-    var lat = this.state.latitude;
-    console.log(lng, lat);
-    const URL = `https://mcmap.org/api/intersect_point/v1/solid_waste/${lng},${lat}/4326?geom_column=the_geom&columns=jurisdiction,day,week,type`;
     try{
       fetch(URL)
         .then(res => res.json())
         .then(json => {
           this.setState({
-            items: json,
+            trashCollection: json,
           })
         })
+        console.log(this.state.trashCollection);
     }
     catch (error){
       console.error(error);
     }
   }
-  
+
+  getPolling() {
+    let setLatLngState = this.state.items.map((val,key)=> {
+      this.setState({
+        longitude: val.lng,
+        latitude: val.lat,
+        
+      })
+    })
+    const URL = `https://mcmap.org/api/intersect_point/v1/solid_waste/${this.state.longitude},${this.state.latitude}/4326?geom_column=the_geom&columns=jurisdiction,day,week,type`;
+    
+    try{
+      fetch(URL)
+        .then(res => res.json())
+        .then(json => {
+          this.setState({
+            polling: json,
+          })
+        })
+        console.log(this.state.polling);
+    }
+    catch (error){
+      console.error(error);
+    }
+  }
 
   render(){
-    var propLat = '';
-    var propLng = '';
-
     let coordinates = this.state.items.map((val, key)=> {
-      return (<View key={key}>
-        <Text>{val.lng} | {val.lat} {propLat = val.lat} {propLng = val.lng} </Text>
-      </View>)
-      
+      return <View key={key}>
+        <Text> {val.lng} | {val.lat} </Text>
+      </View>
     });
 
-    let trash = this.state.items.map((val,key) =>{
-      return(<View key = {key}>
-        <Text>
-          {val.day} | {val.week}
-        </Text>
-      </View>)
-    })
+    let trash = this.state.trashCollection.map((val,key) =>{
+      return <View key = {key}>
+        <Text style={{fontSize: 16}}> {val.jurisdiction}          | {val.day} |       {val.week} |   {val.type}</Text>
+      </View>
+    });
+
+  /** 
+    let poll = this.state.polling.map((val,key) =>{
+      return <View key = {key}>
+        <Text style={{fontSize: 16}}> {val.jurisdiction}          | {val.day} |       {val.week} |   {val.type}</Text>
+      </View>
+    });
+  */
 
     return(
       <Container>
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+            <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
@@ -94,6 +124,7 @@ class CityServices extends Component{
                 City Services
             </Title>
           </Body>
+          <Right />
         </Header>
         <Content padder style={{backgroundColor: '#3d87ff'}}>
 
@@ -102,7 +133,7 @@ class CityServices extends Component{
           </View>
           
           <View>
-            <Text style={styles.bodyHeader}>
+            <Text style={styles.heading}>
               Please Enter Your Address
             </Text>
             <Text style={styles.bodyText}>
@@ -126,12 +157,11 @@ class CityServices extends Component{
               SEARCH
             </Text>
             </TouchableOpacity>
+
             <View>
-              <Text>
-                Trash Days
-                
+              <Text style={styles.heading}>
+                Garbage / Recycle / Yard Waste Collection Days
               </Text>
-              {trash}
             </View>
             <TouchableOpacity
               style = {styles.button}
@@ -140,9 +170,36 @@ class CityServices extends Component{
             >
             <Text
               style={styles.buttonText}>
-              SEARCH
+              Garbage / Recycling / Yard Waste
             </Text>
             </TouchableOpacity>
+            <View>
+              <Text style={styles.miniHead}>
+                Jurisdiction    Day    Week   Type
+              </Text>
+              {trash}
+              <Text>
+                Orange: This Week {"\n"} 
+                Green: Next Week {"\n"}
+              </Text>
+            </View>
+
+            <View>
+              <Text style={styles.heading}>
+                Polling Locations
+              </Text>
+            </View>
+            <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={()=>this.getPolling()}
+            >
+            <Text
+              style={styles.buttonText}>
+              Get Polling Locations
+            </Text>
+            </TouchableOpacity>
+            
         </View>
         </Content>
       </Container>
@@ -208,4 +265,15 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     color: 'white'
   },
+  miniHead: {
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  heading: {
+    fontSize: 25,
+    marginTop: 5,
+    color: '#255600',
+    alignSelf: 'center',
+    fontFamily: 'montserrat-bold'
+  }
 });

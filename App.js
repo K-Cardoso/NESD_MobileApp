@@ -8,11 +8,8 @@ import CityServices from './screens/CityServices'
 import CommunityInformation from './screens/CommunityInformation'
 import About from './screens/About'
 import SocialMedia from './screens/SocialMedia'
-import TrashRecycle from './screens/TrashRecycle'
 import BusSchedule from './screens/BusSchedule'
-import PollingLocation from './screens/PollingLocation'
 import CMSSchoolCalendar from './screens/CMSSchoolCalendar'
-import Events from './screens/CMSSchoolCalendar'
 
 export default class app extends React.Component {
   // Loading Roboto Medium as system fonts
@@ -58,14 +55,8 @@ const AppDrawer = createDrawerNavigator({
   City:{
     screen:CityServices
   },
-  Trash:{
-    screen:TrashRecycle
-  },
   BusSchedule:{
     screen:BusSchedule
-  },
-  PollingLocation:{
-    screen:PollingLocation
   },
   About:{
     screen:About
@@ -73,11 +64,8 @@ const AppDrawer = createDrawerNavigator({
   Community:{
     screen:CommunityInformation
   },
-  CMSSchoolCalendar:{
+  CMSCalendar:{
     screen:CMSSchoolCalendar
-  },
-  Events:{
-    screen:Events
   },
   Social:{
     screen:SocialMedia

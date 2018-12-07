@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Header, Left,Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { Ionicons,FontAwesome,Entypo } from '@expo/vector-icons';
 
 class Events extends Component{
@@ -15,7 +15,7 @@ class Events extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
@@ -23,6 +23,7 @@ class Events extends Component{
                 Events
             </Title>
           </Body>
+          <Right />
         </Header>
         <Content padder style={styles.padder}>
 

@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Header, Left,Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { Ionicons,Entypo } from '@expo/vector-icons';
 
 class CommunityInformation extends Component{
@@ -16,7 +16,7 @@ class CommunityInformation extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
@@ -24,6 +24,7 @@ class CommunityInformation extends Component{
                 Community Information
             </Title>
           </Body>
+          <Right />
         </Header>
         <Content padder style={{backgroundColor: '#3d87ff'}}>
 
@@ -42,18 +43,32 @@ class CommunityInformation extends Component{
           <Text style={styles.bodyHeader}>
             {"\n"}North End Smart District{"\n"}
           </Text>
-          <Text style={styles.links}
-                onPress={() => Linking.openURL('https://www.facebook.com/pg/NorthEndSmartDistrict/events/?ref=page_internal')}>
-            Facebook Page Events{"\n"}
-          </Text>
+
+          <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={() => Linking.openURL('https://www.facebook.com/pg/NorthEndSmartDistrict/events/?ref=page_internal')}
+            >
+            <Text
+              style={styles.buttonText}>
+              Facebook Page Events
+            </Text>
+            </TouchableOpacity>
 
           <Text style={styles.bodyHeader}>
             Camp North End{"\n"}
           </Text>
-          <Text style={styles.links}
-                onPress={() => Linking.openURL('https://www.facebook.com/pg/campnorthend/events/?ref=page_internal')}>
-            Facebook Page Events{"\n"}
-          </Text>
+
+          <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={() => Linking.openURL('https://www.facebook.com/pg/campnorthend/events/?ref=page_internal')}
+            >
+            <Text
+              style={styles.buttonText}>
+              Facebook Page Events
+            </Text>
+            </TouchableOpacity>
 
         </Content>
       </Container>
@@ -92,4 +107,20 @@ const styles = StyleSheet.create({
     fontFamily: 'montserrat-bold',
     textAlign: 'center',
   },
+  button: {
+    height: 45,
+    flexDirection: 'row',
+    backgroundColor:'white',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 20,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#111',
+    alignSelf: 'center'
+  }
 });

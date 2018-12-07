@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View, WebView  } from 'react-native';
+import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { Ionicons,FontAwesome,Entypo } from '@expo/vector-icons';
 
 class BusSchedule extends Component{
@@ -19,7 +19,7 @@ class BusSchedule extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
+              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
@@ -27,25 +27,11 @@ class BusSchedule extends Component{
                 Bus Schedule
             </Title>
           </Body>
+          <Right />
         </Header>
-        <Content padder style={styles.padder}>
-
-          <View style={{alignItems:'center'}}>
-            <Image source={require('./image/logo.png')} />
-          </View>
-
-          <Text style={styles.bodyText}>
-            {"\n"}
-            filler text
-            {"\n"}
-          </Text>
-          
-          <Text style={styles.links}
-                onPress={() => Linking.openURL('http://northendsmartdistrict.com/')}>
-            North End Smart District Webpage
-          </Text>
-
-        </Content>
+        <View style={styles.padder}>
+          <WebView useWebKit={true} source={{uri: 'https://charlottenc.gov/cats/bus/routes/Pages/default.aspx'}} />
+        </View>
       </Container>
     )
   }
@@ -71,7 +57,8 @@ const styles = StyleSheet.create({
     color: 'blue'
   },
   padder:{
-    backgroundColor: '#3d87ff'
+    backgroundColor: '#3d87ff',
+    flex: 1
   },
   bodyText:{
     textAlign: 'center',
