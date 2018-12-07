@@ -1,9 +1,9 @@
 import React, { Component} from 'react';
-import { Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, View } from 'react-native';
-import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
-import { Ionicons,FontAwesome, Entypo } from '@expo/vector-icons';
+import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Header, Left,Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Ionicons,FontAwesome,Entypo } from '@expo/vector-icons';
 
-class TrashRecycle extends Component{
+class Events extends Component{
   static navigationOptions = {
       drawerIcon: ({tintColor}) => (
           <FontAwesome name="long-arrow-right" size={25} color="dimgray"/>
@@ -19,10 +19,11 @@ class TrashRecycle extends Component{
             </Button>
           </Left>
           <Body>
-          <Text style={{color:'white'}}>
-                Trash &amp; Recycling
-            </Text>
+            <Title>
+                Events
+            </Title>
           </Body>
+          <Right />
         </Header>
         <Content padder style={styles.padder}>
 
@@ -32,7 +33,7 @@ class TrashRecycle extends Component{
 
           <Text style={styles.bodyText}>
             {"\n"}
-            (Place holder for trash and recycle information)
+            (Place holder for Events)
             {"\n"}
           </Text>
 
@@ -47,7 +48,7 @@ class TrashRecycle extends Component{
   }
 }
 
-export default TrashRecycle;
+export default Events;
 
 const styles = StyleSheet.create({
   Container:{

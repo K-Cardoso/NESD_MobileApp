@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
-import { Linking, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
+import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
 
 class SocialMedia extends Component{
 
@@ -20,47 +20,90 @@ class SocialMedia extends Component{
             </Button>
           </Left>
           <Body>
-            <Text style={{color:'white'}}>
+            <Title>
                 Social Media
-            </Text>
+            </Title>
           </Body>
+          <Right />
         </Header>
         <Content padder style={{backgroundColor: '#3d87ff'}}>
 
           <View style={{alignItems:'center'}}>
             <Image source={require('./image/logo.png')} />
           </View>
-
-          <Text style={styles.body}>
-            <Text style={styles.title}>
+          <View>
+            <Text style={styles.bodyHeader}>
               {"\n"}North End Smart District{"\n"}
             </Text>
-            <Text style={styles.links}
-                  onPress={() => Linking.openURL('https://www.facebook.com/NorthEndSmartDistrict/')}>
-              Facebook{"\n"}
-            </Text>
-            <Text style={styles.links}
-                  onPress={() => Linking.openURL('https://www.instagram.com/NorthEndSmartDistrict/')}>
-              Instagram{"\n"}
-            </Text>
 
-            <Text style={styles.title}>
+            <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={() => Linking.openURL('https://www.facebook.com/NorthEndSmartDistrict/')}
+            >
+            <Text
+              style={styles.buttonText}>
+              Facebook
+            </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={() => Linking.openURL('https://www.facebook.com/pg/NorthEndSmartDistrict/events/?ref=page_internal')}
+            >
+            <Text
+              style={styles.buttonText}>
+              Facebook Page Events
+            </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={() => Linking.openURL('https://www.instagram.com/NorthEndSmartDistrict/')}
+            >
+            <Text
+              style={styles.buttonText}>
+              Instagram
+            </Text>
+            </TouchableOpacity>
+
+            <Text style={styles.bodyHeader}>
               Camp North End{"\n"}
             </Text>
 
-            <Text style={styles.links}
-                  onPress={() => Linking.openURL('https://www.facebook.com/campnorthend/')}>
-              Facebook{"\n"}
+            <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={() => Linking.openURL('https://www.facebook.com/campnorthend/')}
+            >
+            <Text
+              style={styles.buttonText}>
+              Facebook
             </Text>
-            <Text style={styles.links}
-                  onPress={() => Linking.openURL('https://www.instagram.com/campnorthend/')}>
-              Instagram{"\n"}
+            </TouchableOpacity>
+            <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={() => Linking.openURL('https://www.instagram.com/campnorthend/')}
+            >
+            <Text
+              style={styles.buttonText}>
+              Instagram
             </Text>
-            <Text style={styles.links}
-                  onPress={() => Linking.openURL('https://twitter.com/campnorthend')}>
-              Twitter{"\n"}
+            </TouchableOpacity>
+            <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={() => Linking.openURL('https://twitter.com/campnorthend')}
+            >
+            <Text
+              style={styles.buttonText}>
+              Twitter
             </Text>
-          </Text>
+            </TouchableOpacity>
+          </View>
 
         </Content>
       </Container>
@@ -70,23 +113,50 @@ class SocialMedia extends Component{
 export default SocialMedia;
 
 const styles = StyleSheet.create({
-  image:{
+  Container:{
+    flex: 1,
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 167,
-    height: 44
   },
   Header:{
     ...Platform.select({
       android: {
         marginTop: StatusBar.currentHeight
       }
-    })
+    }),
   },
   links:{
     color: 'blue'
   },
-  title:{
-    fontSize: 18
+  padder:{
+    backgroundColor: '#3d87ff',
+  },
+  bodyText:{
+    fontSize: 16,
+    fontFamily: 'open-sans-regular',
+    textAlign: 'center',
+  },
+  bodyHeader:{
+    fontSize: 18,
+    fontFamily: 'montserrat-bold',
+    textAlign: 'center',
+  },
+  button: {
+    height: 45,
+    flexDirection: 'row',
+    backgroundColor:'white',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 20,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#111',
+    alignSelf: 'center'
   }
 });
+
