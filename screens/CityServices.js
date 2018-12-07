@@ -12,6 +12,8 @@ class CityServices extends Component{
     this.state = {
       items: [],
       inputAddress: '',
+      longitude: '',
+      latitude: '',
     }
   }
   static navigationOptions = {
@@ -29,7 +31,8 @@ class CityServices extends Component{
         .then(json => {
           this.setState({
             items: json,
-
+            latitude: json.lat,
+            longitude: json.lng,
           })
         })
     }
@@ -38,6 +41,25 @@ class CityServices extends Component{
     }
   }
 
+  getTrash(){
+    
+    var lng = this.state.longitude;
+    var lat = this.state.latitude;
+    console.log(lng, lat);
+    const URL = `https://mcmap.org/api/intersect_point/v1/solid_waste/${lng},${lat}/4326?geom_column=the_geom&columns=jurisdiction,day,week,type`;
+    try{
+      fetch(URL)
+        .then(res => res.json())
+        .then(json => {
+          this.setState({
+            items: json,
+          })
+        })
+    }
+    catch (error){
+      console.error(error);
+    }
+  }
   
 
   render(){
@@ -45,10 +67,19 @@ class CityServices extends Component{
     var propLng = '';
 
     let coordinates = this.state.items.map((val, key)=> {
-      return <View key={key}>
-        <Text>{val.lng} | {val.lat} {propLat = val.lat} {propLng = val.lng}</Text>
-      </View>
+      return (<View key={key}>
+        <Text>{val.lng} | {val.lat} {propLat = val.lat} {propLng = val.lng} </Text>
+      </View>)
+      
     });
+
+    let trash = this.state.items.map((val,key) =>{
+      return(<View key = {key}>
+        <Text>
+          {val.day} | {val.week}
+        </Text>
+      </View>)
+    })
 
     return(
       <Container>
@@ -95,12 +126,23 @@ class CityServices extends Component{
               SEARCH
             </Text>
             </TouchableOpacity>
-
             <View>
               <Text>
                 Trash Days
+                
               </Text>
+              {trash}
             </View>
+            <TouchableOpacity
+              style = {styles.button}
+              underlayColor= "white"
+              onPress={()=>this.getTrash()}
+            >
+            <Text
+              style={styles.buttonText}>
+              SEARCH
+            </Text>
+            </TouchableOpacity>
         </View>
         </Content>
       </Container>
