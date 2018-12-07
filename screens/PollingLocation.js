@@ -32,7 +32,7 @@ class PollingLocation extends Component{
 
           <Text style={styles.bodyText}>
             {"\n"}
-            (Place holder for Polling Location)
+            {this.props.latitude}  {this.props.longitude}
             {"\n"}
           </Text>
 

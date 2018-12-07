@@ -2,6 +2,8 @@ import React, { Component} from 'react';
 import { AsyncStorage, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput} from 'react-native';
 import { Ionicons,MaterialIcons, Entypo } from '@expo/vector-icons';
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import TrashRecycle from './TrashRecycle'
+import PollingLocation from './PollingLocation'
 
 class CityServices extends Component{
   
@@ -10,11 +12,8 @@ class CityServices extends Component{
     this.state = {
       items: [],
       inputAddress: '',
-      longitude: '',
-      latitude:'',
     }
   }
-  
   static navigationOptions = {
     drawerIcon:(
       <MaterialIcons name="location-city" size={25} color="dimgray"/>
@@ -30,23 +29,24 @@ class CityServices extends Component{
         .then(json => {
           this.setState({
             items: json,
+
           })
-          
         })
-        
     }
     catch (error){
       console.error(error);
     }
-
   }
 
+  
+
   render(){
-    var{ items } = this.state;
+    var propLat = '';
+    var propLng = '';
 
     let coordinates = this.state.items.map((val, key)=> {
       return <View key={key}>
-        <Text>{val.lng} | {val.lat} </Text>
+        <Text>{val.lng} | {val.lat} {propLat = val.lat} {propLng = val.lng}</Text>
       </View>
     });
 
@@ -95,6 +95,12 @@ class CityServices extends Component{
               SEARCH
             </Text>
             </TouchableOpacity>
+
+            <View>
+              <Text>
+                Trash Days
+              </Text>
+            </View>
         </View>
         </Content>
       </Container>
