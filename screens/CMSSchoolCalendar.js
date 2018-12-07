@@ -29,7 +29,7 @@ class CMSSchoolCalendar extends Component{
           </Left>
           <Body>
             <Title>
-                CMS School Calendar
+                CMS Cal
             </Title>
           </Body>
           <Right />

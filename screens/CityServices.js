@@ -73,7 +73,7 @@ class CityServices extends Component{
         
       })
     })
-    const URL = `https://mcmap.org/api/intersect_point/v1/solid_waste/${this.state.longitude},${this.state.latitude}/4326?geom_column=the_geom&columns=jurisdiction,day,week,type`;
+    const URL = `https://mcmap.org/api/intersect_point/v1/voting_precincts/${this.state.longitude},${this.state.latitude}/4326?geom_column=the_geom&limit=1&columns=voting_precincts.cc, voting_precincts.school, polling_locations.name as label,polling_locations.address,voting_precincts.precno as precinct,st_x(st_transform(polling_locations.the_geom, 4326)) as lng, st_y(st_transform(polling_locations.the_geom, 4326)) as lat, ST_Distance(polling_locations.the_geom,ST_Transform(GeomFromText('POINT(${this.state.longitude} ${this.state.latitude})',4326), 2264)) as distance&join=polling_locations;voting_precincts.precno = polling_locations.precno`;
     
     try{
       fetch(URL)
@@ -103,13 +103,16 @@ class CityServices extends Component{
       </View>
     });
 
-  /** 
     let poll = this.state.polling.map((val,key) =>{
       return <View key = {key}>
-        <Text style={{fontSize: 16}}> {val.jurisdiction}          | {val.day} |       {val.week} |   {val.type}</Text>
+        <Text style={{fontSize: 16}}>
+          <Text style={styles.pollingHead}>Location Name: </Text>{val.label} {"\n"}
+          <Text style={styles.pollingHead}>Location Address: </Text>{val.address} {"\n"}
+          <Text style={styles.pollingHead}>Precinct: </Text>{val.precinct} {"\n"}
+          <Text style={styles.pollingHead}>Distance: </Text>{val.distance}ft
+        </Text>
       </View>
     });
-  */
 
     return(
       <Container>
@@ -199,7 +202,7 @@ class CityServices extends Component{
               Get Polling Locations
             </Text>
             </TouchableOpacity>
-            
+            {poll}
         </View>
         </Content>
       </Container>
@@ -268,6 +271,7 @@ const styles = StyleSheet.create({
   miniHead: {
     fontSize: 22,
     fontWeight: 'bold',
+    fontFamily: 'open-sans-regular',
   },
   heading: {
     fontSize: 25,
@@ -275,5 +279,8 @@ const styles = StyleSheet.create({
     color: '#255600',
     alignSelf: 'center',
     fontFamily: 'montserrat-bold'
+  },
+  pollingHead: {
+    fontFamily: 'open-sans-regular',
   }
 });

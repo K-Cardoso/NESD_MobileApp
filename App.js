@@ -16,7 +16,7 @@ export default class app extends React.Component {
   state={
     fontLoaded: false
   }
-
+  
   async componentWillMount(){
     await Font.loadAsync({
       'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
