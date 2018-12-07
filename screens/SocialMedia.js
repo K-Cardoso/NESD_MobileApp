@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
-import { Linking, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View, WebView } from 'react-native';
+import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
-import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 
 class SocialMedia extends Component{
 
@@ -16,13 +16,13 @@ class SocialMedia extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
+              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
-            <Text style={{color:'black'}}>
+            <Title>
                 Social Media
-            </Text>
+            </Title>
           </Body>
         </Header>
         <Content padder style={{backgroundColor: '#3d87ff'}}>
@@ -30,8 +30,8 @@ class SocialMedia extends Component{
           <View style={{alignItems:'center'}}>
             <Image source={require('./image/logo.png')} />
           </View>
-          <Text style={styles.body}>
-            <Text style={styles.title}>
+          <Text>
+            <Text style={styles.bodyHeader}>
               {"\n"}North End Smart District{"\n"}
             </Text>
             <Text style={styles.links}
@@ -47,7 +47,7 @@ class SocialMedia extends Component{
               Instagram{"\n"}{"\n"}
             </Text>
 
-            <Text style={styles.title}>
+            <Text style={styles.bodyHeader}>
               Camp North End{"\n"}
             </Text>
 
@@ -73,23 +73,34 @@ class SocialMedia extends Component{
 export default SocialMedia;
 
 const styles = StyleSheet.create({
-  image:{
+  Container:{
+    flex: 1,
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 167,
-    height: 44
   },
   Header:{
     ...Platform.select({
       android: {
         marginTop: StatusBar.currentHeight
       }
-    })
+    }),
   },
   links:{
     color: 'blue'
   },
-  title:{
-    fontSize: 18
-  }
+  padder:{
+    backgroundColor: '#3d87ff',
+  },
+  bodyText:{
+    fontSize: 16,
+    fontFamily: 'open-sans-regular',
+    textAlign: 'center',
+  },
+  bodyHeader:{
+    fontSize: 18,
+    fontFamily: 'montserrat-bold',
+    textAlign: 'center',
+  },
 });
+

@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-import { Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { Ionicons,FontAwesome,Entypo } from '@expo/vector-icons';
 
 class HomeScreen extends Component{
@@ -16,34 +16,35 @@ class HomeScreen extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
+              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
-          <Body style={{flex: 1}}>
-            <Title style={styles.HeaderText}>
+          <Body>
+            <Title>
                 Home
             </Title>
           </Body>
         </Header>
         <Content padder style={styles.padder}>
 
-          <View style={{alignItems:'center'}}>
-            <Image source={require('./image/logo.png')} />
-          </View>
+          <View>
+            <Text style={styles.bodyHeader}>
+              Welcome to the North End Smart District Mobile App!
+              {"\n"}
+            </Text>
 
-            <View style={styles.bodyText}>
-              <Text>
-                {"\n"}
-                The North End Smart District (NESD) has been defined by 15 studies between 1993 
-                and 2016 that identified the area as a future hotspot for development, attracting 
-                new economic activities, particularly centered on technology and innovation sectors.
-              </Text>
-            </View>
-
-          <Text style={styles.links}
+            <TouchableOpacity style={styles.imageView} 
                 onPress={() => Linking.openURL('http://northendsmartdistrict.com/')}>
-            North End Smart District Webpage
-          </Text>
+              <Image style={styles.imageStyle} source={require('./image/logo.png')} />
+            </TouchableOpacity>
+
+            <Text style={styles.bodyText}>
+              {"\n"}
+              The North End Smart District mobile application is a cross-platform mobile 
+              app showcasing community events, information, and municipal services all 
+              collectively presented in a clear and easy to use app.
+            </Text>
+          </View>
 
         </Content>
       </Container>
@@ -64,27 +65,26 @@ const styles = StyleSheet.create({
       }
     })
   },
-  HeaderText:{
-    ...Platform.select({
-      android: {
-        color:'white'
-      },
-      ios: {
-        color:'black'
-      }
-    })
-  },
-  links:{
-    color: 'blue'
-  },
   padder:{
     backgroundColor: '#3d87ff',
   },
   bodyText:{
+    fontSize: 16,
+    fontFamily: 'open-sans-regular',
     textAlign: 'center',
   },
-  head1:{
+  bodyHeader:{
     fontSize: 18,
-    fontWeight: 'bold'
+    fontFamily: 'montserrat-bold',
+    textAlign: 'center',
+  },
+  imageView:{
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imageStyle:{
+    width: 240,
+    height: 80,
+    resizeMode: 'contain',
   }
 });

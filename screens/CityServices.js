@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
-import { AsyncStorage, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput} from 'react-native';
+import { AsyncStorage, StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput} from 'react-native';
+import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { Ionicons,MaterialIcons, Entypo } from '@expo/vector-icons';
-import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import TrashRecycle from './TrashRecycle'
 import PollingLocation from './PollingLocation'
 
@@ -86,13 +86,13 @@ class CityServices extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
+              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
-            <Text style={{color:'black'}}>
+            <Title>
                 City Services
-            </Text>
+            </Title>
           </Body>
         </Header>
         <Content padder style={{backgroundColor: '#3d87ff'}}>
@@ -102,10 +102,10 @@ class CityServices extends Component{
           </View>
           
           <View>
-            <Text style={styles.title}>
+            <Text style={styles.bodyHeader}>
               Please Enter Your Address
             </Text>
-            <Text>
+            <Text style={styles.bodyText}>
               By entering your address, we will be able to retrieve trash pickup and Polling locations{"\n"}
             </Text>
             {coordinates}
@@ -166,16 +166,6 @@ const styles = StyleSheet.create({
       }
     }),
   },
-  HeaderText:{
-    ...Platform.select({
-      android: {
-        color:'white'
-      },
-      ios: {
-        color:'black'
-      }
-    })
-  },
   links:{
     color: 'blue'
   },
@@ -196,11 +186,17 @@ const styles = StyleSheet.create({
     color: '#111',
     alignSelf: 'center'
   },
-  title: {
+  bodyHeader: {
     marginBottom: 10,
     fontSize: 25,
     textAlign: 'center',
-    marginTop: 10
+    marginTop: 10,
+    fontFamily: 'montserrat-bold',
+  },
+  bodyText:{
+    fontSize: 16,
+    fontFamily: 'open-sans-regular',
+    textAlign: 'center',
   },
   searchInput: {
     height: 50,

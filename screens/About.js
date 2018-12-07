@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-import { Linking , StatusBar, Image, Platform, StyleSheet, Text, View } from 'react-native';
-import { Header, Left, Body, Button, Title, Container, Content} from 'native-base';
+import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { MaterialIcons,Entypo } from '@expo/vector-icons';
 
 class About extends Component{
@@ -16,13 +16,13 @@ class About extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
+              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
-            <Text style={styles.HeaderText}>
+            <Title>
                 About
-            </Text>
+            </Title>
           </Body>
         </Header>
         <Content padder style={styles.padder}>
@@ -31,22 +31,22 @@ class About extends Component{
             <Image source={require('./image/logo.png')} />
           </View>
 
-            <View style={styles.bodyText}>
+            <View>
               
-              <Text style={styles.head1}>
+              <Text style={styles.bodyHeader}>
                 {"\n"}
                 What is NESD?
               </Text>
-              <Text>
+              <Text style={styles.bodyText}>
                 The North End Smart District (NESD) has been defined by 15 studies between 1993 
                 and 2016 that identified the area as a future hotspot for development, attracting 
                 new economic activities, particularly centered on technology and innovation sectors.
               </Text>
-              <Text style={styles.head1}>
+              <Text style={styles.bodyHeader}>
                 {"\n"}
                 Why Are We Here?
               </Text>
-              <Text>
+              <Text style={styles.bodyText}>
                 The information here is intended to start a conversation about how we can leverage smart 
                 city efforts to be a resource for the work you are already doing in your neighborhood, 
                 place of business, place of investment, or project area and to find new opportunities to 
@@ -59,7 +59,7 @@ class About extends Component{
                 source={require('./image/NESD_map.jpeg')} 
               />
             </View>
-            <Text>
+            <Text style={styles.bodyText}>
               {"\n"}
               Charlotte’s smart city vision includes creating a district that acts as a hub for the city’s innovation engine. Smart Cities 
               optimize infrastructure to maximize services and opportunities for public good. Government, companies, universities, and 
@@ -100,16 +100,6 @@ const styles = StyleSheet.create({
       }
     }),
   },
-  HeaderText:{
-    ...Platform.select({
-      android: {
-        color:'white'
-      },
-      ios: {
-        color:'black'
-      }
-    })
-  },
   links:{
     color: 'blue'
   },
@@ -117,11 +107,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#3d87ff',
   },
   bodyText:{
+    fontSize: 16,
+    fontFamily: 'open-sans-regular',
     textAlign: 'center',
   },
-  head1:{
+  bodyHeader:{
     fontSize: 18,
-    fontWeight: 'bold'
-  }
-
+    fontFamily: 'montserrat-bold',
+    textAlign: 'center',
+  },
 });
