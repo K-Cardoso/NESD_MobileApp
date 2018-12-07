@@ -1,13 +1,13 @@
 import React from 'react';
 import { Font } from 'expo';
-import { Image, Platform, StyleSheet, View, SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { Image, Platform, View, SafeAreaView, ScrollView } from 'react-native';
 import {createDrawerNavigator, DrawerItems} from 'react-navigation';
+
 import HomeScreen from './screens/HomeScreen'
 import CityServices from './screens/CityServices'
 import CommunityInformation from './screens/CommunityInformation'
 import About from './screens/About'
 import SocialMedia from './screens/SocialMedia'
-
 import TrashRecycle from './screens/TrashRecycle'
 import BusSchedule from './screens/BusSchedule'
 import PollingLocation from './screens/PollingLocation'

@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
-import { Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, View } from 'react-native';
-import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
-import { Ionicons,FontAwesome, Entypo } from '@expo/vector-icons';
+import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Ionicons,FontAwesome,Entypo } from '@expo/vector-icons';
 
 class Events extends Component{
   static navigationOptions = {
@@ -15,13 +15,13 @@ class Events extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
+              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
-          <Text style={{color:'white'}}>
+            <Title>
                 Events
-            </Text>
+            </Title>
           </Body>
         </Header>
         <Content padder style={styles.padder}>

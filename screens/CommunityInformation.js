@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
-import { Linking, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-import { Ionicons, Entypo } from '@expo/vector-icons';
-import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Header, Left, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import { Ionicons,Entypo } from '@expo/vector-icons';
 
 class CommunityInformation extends Component{
 
@@ -16,13 +16,13 @@ class CommunityInformation extends Component{
         <Header style={styles.Header}>
           <Left>
             <Button transparent>
-              <Entypo name="menu" size={25} onPress={() =>this.props.navigation.openDrawer()}/>
+              <Icon name="menu" onPress={() =>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
-            <Text style={{color:'black'}}>
+            <Title>
                 Community Information
-            </Text>
+            </Title>
           </Body>
         </Header>
         <Content padder style={{backgroundColor: '#3d87ff'}}>
@@ -30,13 +30,29 @@ class CommunityInformation extends Component{
           <View style={{alignItems:'center'}}>
             <Image source={require('./image/logo.png')} />
           </View>
-          <Text style={{fontSize: 36}}>
+          <Text style={styles.bodyHeader}>
             {"\n"}
             “We have the opportunity to do better than we’ve done. Let’s try to get it right this time.”
           </Text>
-          <Text style={{fontSize: 16}}>
+          <Text style={styles.bodyText}>
             {"\n"}
             —Darryl Gaston, President of the Druid Hills Neighborhood Association
+          </Text>
+
+          <Text style={styles.bodyHeader}>
+            {"\n"}North End Smart District{"\n"}
+          </Text>
+          <Text style={styles.links}
+                onPress={() => Linking.openURL('https://www.facebook.com/pg/NorthEndSmartDistrict/events/?ref=page_internal')}>
+            Facebook Page Events{"\n"}
+          </Text>
+
+          <Text style={styles.bodyHeader}>
+            Camp North End{"\n"}
+          </Text>
+          <Text style={styles.links}
+                onPress={() => Linking.openURL('https://www.facebook.com/pg/campnorthend/events/?ref=page_internal')}>
+            Facebook Page Events{"\n"}
           </Text>
 
         </Content>
@@ -47,23 +63,33 @@ class CommunityInformation extends Component{
 export default CommunityInformation;
 
 const styles = StyleSheet.create({
-  image:{
+  Container:{
+    flex: 1,
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 167,
-    height: 44
   },
   Header:{
     ...Platform.select({
       android: {
         marginTop: StatusBar.currentHeight
       }
-    })
+    }),
   },
   links:{
     color: 'blue'
   },
-  body:{
-    
-  }
+  padder:{
+    backgroundColor: '#3d87ff',
+  },
+  bodyText:{
+    fontSize: 16,
+    fontFamily: 'open-sans-regular',
+    textAlign: 'center',
+  },
+  bodyHeader:{
+    fontSize: 18,
+    fontFamily: 'montserrat-bold',
+    textAlign: 'center',
+  },
 });
