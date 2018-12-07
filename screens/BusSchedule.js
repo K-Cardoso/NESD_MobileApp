@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, View } from 'react-native';
+import { AsyncStorage, Linking , StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, View } from 'react-native';
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
 import { Ionicons,FontAwesome, Entypo } from '@expo/vector-icons';
 
@@ -9,7 +9,11 @@ class BusSchedule extends Component{
           <FontAwesome name="long-arrow-right" size={25} color="dimgray"/>
       )
   }
+  
+  
+
   render(){
+    
     return(
       <Container>
         <Header style={styles.Header}>
@@ -32,10 +36,10 @@ class BusSchedule extends Component{
 
           <Text style={styles.bodyText}>
             {"\n"}
-            (Place holder for bus schedule)
+            filler text
             {"\n"}
           </Text>
-
+          
           <Text style={styles.links}
                 onPress={() => Linking.openURL('http://northendsmartdistrict.com/')}>
             North End Smart District Webpage

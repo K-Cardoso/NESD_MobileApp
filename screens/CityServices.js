@@ -1,7 +1,9 @@
 import React, { Component} from 'react';
-import { StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput} from 'react-native';
+import { AsyncStorage, StatusBar, Alert, AppRegistry, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput} from 'react-native';
 import { Ionicons,MaterialIcons, Entypo } from '@expo/vector-icons';
 import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
+import TrashRecycle from './TrashRecycle'
+import PollingLocation from './PollingLocation'
 
 class CityServices extends Component{
   
@@ -12,7 +14,6 @@ class CityServices extends Component{
       inputAddress: '',
     }
   }
-  
   static navigationOptions = {
     drawerIcon:(
       <MaterialIcons name="location-city" size={25} color="dimgray"/>
@@ -28,6 +29,7 @@ class CityServices extends Component{
         .then(json => {
           this.setState({
             items: json,
+
           })
         })
     }
@@ -36,9 +38,17 @@ class CityServices extends Component{
     }
   }
 
+  
+
   render(){
-    var address = "";
-    var{ items } = this.state;
+    var propLat = '';
+    var propLng = '';
+
+    let coordinates = this.state.items.map((val, key)=> {
+      return <View key={key}>
+        <Text>{val.lng} | {val.lat} {propLat = val.lat} {propLng = val.lng}</Text>
+      </View>
+    });
 
     return(
       <Container>
@@ -61,18 +71,19 @@ class CityServices extends Component{
           </View>
           
           <View>
-            <Text style={styles.title}>Please Enter Your Address</Text>
-            <Text>By entering your address, we will be able to retrieve trash pickup and Polling locations{"\n"}
-               
+            <Text style={styles.title}>
+              Please Enter Your Address
             </Text>
-              {items.map(item => (
-                <Text key={item.id}>
-                  {item.lat} | {item.lng}
-                </Text>
-              ))}
+            <Text>
+              By entering your address, we will be able to retrieve trash pickup and Polling locations{"\n"}
+            </Text>
+            {coordinates}
+              
+              
             <TextInput
               style={styles.searchInput}
-              onChangeText={inputAddress => this.setState({inputAddress})}
+              value = {this.state.inputAddress}
+              onChangeText = {inputAddress => this.setState({inputAddress: inputAddress})}
             />
             <TouchableOpacity
               style = {styles.button}
@@ -84,6 +95,12 @@ class CityServices extends Component{
               SEARCH
             </Text>
             </TouchableOpacity>
+
+            <View>
+              <Text>
+                Trash Days
+              </Text>
+            </View>
         </View>
         </Content>
       </Container>

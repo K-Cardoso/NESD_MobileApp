@@ -14,7 +14,6 @@ import PollingLocation from './screens/PollingLocation'
 import CMSSchoolCalendar from './screens/CMSSchoolCalendar'
 import Events from './screens/CMSSchoolCalendar'
 
-
 export default class app extends React.Component {
   // Loading Roboto Medium as system fonts
   state={

@@ -34,7 +34,7 @@ export default class TrashRecycle extends Component{
 
           <Text style={styles.bodyText}>
             {"\n"}
-            (Place holder for trash and recycle information)
+            {this.props.latitude}  {this.props.longitude}
             {"\n"}
           </Text>
 
