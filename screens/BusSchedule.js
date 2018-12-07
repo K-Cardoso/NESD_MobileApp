@@ -9,6 +9,7 @@ class BusSchedule extends Component{
           <FontAwesome name="long-arrow-right" size={25} color="dimgray"/>
       )
   }
+  
   render(){
     return(
       <Container>
@@ -32,7 +33,7 @@ class BusSchedule extends Component{
 
           <Text style={styles.bodyText}>
             {"\n"}
-            (Place holder for bus schedule)
+            filler text
             {"\n"}
           </Text>
 
