@@ -19,7 +19,7 @@ export default class app extends React.Component {
   
   async componentWillMount(){
     await Font.loadAsync({
-      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+      'Roboto_medium': require('./assets/fonts/Roboto-Medium.ttf'),
       'montserrat-bold': require('./assets/fonts/Montserrat-Bold.ttf'),
       'open-sans-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
     });
