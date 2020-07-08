@@ -1,8 +1,8 @@
 import React from 'react';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
-import { Image, Platform, View, SafeAreaView, ScrollView } from 'react-native';
-import { createDrawerNavigator, DrawerItems, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
+import { Image, Platform, View } from 'react-native';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
 import HomeScreen from './screens/HomeScreen'
@@ -39,49 +39,6 @@ export default class app extends React.Component {
     );
   }
 }
-// -----------------------------------------------
-// React Navigation v4 - custom drawer content
-// -----------------------------------------------
-// const CustomDrawerComponent = (props) => (
-//   <SafeAreaView style={{flex: 1}}>
-//     <View style={{height:110, backgroundColor: 'white', alignItems:'center'}}>
-//       <Image source={require('./screens/image/sideLogo.png')} 
-//         style={{marginTop:30,marginBottom:30,width:150,height:75}} />
-//     </View>
-//     <ScrollView>
-//       <DrawerItems {...props}/>
-//     </ScrollView>
-//   </SafeAreaView>
-// )
-
-// const AppDrawer = createDrawerNavigator({
-//   Home:{
-//     screen:HomeScreen
-//   },
-//   City:{
-//     screen:CityServices
-//   },
-//   BusSchedule:{
-//     screen:BusSchedule
-//   },
-//   About:{
-//     screen:About
-//   },
-//   Community:{
-//     screen:CommunityInformation
-//   },
-//   CMSCalendar:{
-//     screen:CMSSchoolCalendar
-//   },
-//   Social:{
-//     screen:SocialMedia
-//   }
-// }, {
-//   contentComponent: CustomDrawerComponent,
-//   contentOptions:{
-//     activeTintColor: 'green'
-//   }
-// })
 
 // -----------------------------------------------
 // React Navigation v5 - custom drawer content
