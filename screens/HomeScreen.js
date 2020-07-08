@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { Linking , StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Header, Left,Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
-import { Ionicons,FontAwesome,Entypo } from '@expo/vector-icons';
+import { Header, Left, Right, Body, Button, Title, Container, Content } from 'native-base';
+import { Entypo } from '@expo/vector-icons';
 
 class HomeScreen extends Component{
 

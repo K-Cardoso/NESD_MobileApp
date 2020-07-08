@@ -1,8 +1,7 @@
 import React, { Component} from 'react';
-import { AsyncStorage, StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput} from 'react-native';
-import { Header, Left, Right, Icon, Body, Button, Title, Container, Content} from 'native-base';
-import axios from 'axios'
-import { Ionicons,MaterialIcons, Entypo } from '@expo/vector-icons';
+import { StatusBar, Image, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
+import { Header, Left, Right, Body, Button, Title, Container, Content } from 'native-base';
+import { MaterialIcons, Entypo } from '@expo/vector-icons';
 
 class CityServices extends Component{
   
