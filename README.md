@@ -23,6 +23,14 @@ npm outdated
 npm update
 ```
 
+### Updating Expo
+
+```bash
+# expo-cli must be installed first
+# npm install expo-cli@latest -g
+expo upgrade
+```
+
 #### Development Notes & Documentation
 
 Rough notes created during the development process. Could help with future additions to the app or troubleshooting.
